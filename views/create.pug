@@ -1,0 +1,15 @@
+extends ../layout/commom.pug
+block content
+  h1 Create a to do list
+  if errors
+    each err in errors
+      .alert.alert-danger= err
+  form.form-group(action="/home/create", method="POST")
+    d-flex
+      label Activity
+      input.form-control(type="text" name="name" value=values ? values.name : "")
+      br
+      label Id
+      input.form-control(type="text" name="id" value=values ? values.id : "")
+    button.btn.btn-primary.mt-5 Add
+  

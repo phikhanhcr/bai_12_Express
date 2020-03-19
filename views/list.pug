@@ -1,0 +1,19 @@
+extends ../layout/commom.pug
+block content
+  h2 To Do List
+  form.form-group(action="/home/search" method="GET")
+    .d-flex
+      label(for="name") Name
+      input#name.form-control(type="text" name="name")
+      label(for="id") ID
+      input#id.form-control(type="text" name="id")
+      button.btn.btn-primary.ml-2 Search
+  table.table
+    tr
+      th Name
+      th ID
+      th Action
+    each item in list
+      tr
+        td=item.name
+        td=item.id

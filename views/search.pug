@@ -1,0 +1,11 @@
+extends ../layout/commom.pug
+block content
+  form.form-group(action="/home/search" method="GET")
+    input.form-control(type="text" name="name")
+    input.form-control(type="text" name="id")
+    button Search
+  br
+  br
+  ul
+    each item in list
+      li= item.name
