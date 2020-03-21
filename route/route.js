@@ -1,3 +1,4 @@
+var checkValue = require("../validation/checkValue");
 var express = require("express");
 var router = express.Router();
 var bodyParser = require("body-parser");
@@ -10,7 +11,7 @@ router.get('/search' , controler.search)
 
 router.get('/create' , controler.get)
 
-router.post('/create' , controler.post)
+router.post('/create' , checkValue.checkValue , controler.post)
 
 
 module.exports = router;

@@ -26,22 +26,8 @@ module.exports.search = (req , res ) => {
 module.exports.get = (req , res) => {
   res.render('create')
 }
-module.exports.post = (req , res) => {
+module.exports.post = (req , res ) => {
   var newUser = req.body;
-  var errors = [];
-  if(!req.body.name){
-    errors.push("Name is required !")
-  }
-  if(!req.body.id){
-    errors.push("Id is required")
-  }
-  if(errors.length) {
-    res.render('create' , {
-      "errors" : errors, 
-      "values" : req.body
-    });
-    return;
-  }
   db.get('list').push(newUser).write()
   res.redirect('/home')
 }
