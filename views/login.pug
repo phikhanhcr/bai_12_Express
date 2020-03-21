@@ -1,0 +1,18 @@
+extends ../layout/commom.pug
+block content
+  h1 Login
+  if errors
+    each err in errors
+      .alert.alert-danger= err
+  form( method="POST")
+    .form-group
+      label(for='Email1') Email address
+      input#Email1.form-control(type='text', aria-describedby='emailHelp' , name="name" , value=values ? values.user : "")
+      small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+    .form-group
+      label(for='Password1') Password
+      input#Password1.form-control(type='password' , name="pass" , value=values ? values.pass : "")
+    .form-group.form-check
+      input#exampleCheck1.form-check-input(type='checkbox')
+      label.form-check-label(for='exampleCheck1') Check me out
+    button.btn.btn-primary(type='submit') Login
